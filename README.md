@@ -14,7 +14,7 @@ This is a simple command-line based grocery store management system implemented 
 1. **Clone the Repository:** Clone this repository to your local machine using the following command:
 
     ```
-    git clone https://github.com/OnShoreApple/C-Project-Bill-Managment.git
+    git clone https://github.com/OnShoreApple/C-Project-Bill-Management.git
     ```
 
 2. **Compile the Code:** Compile the code using a C compiler. For example, you can use GCC:
