@@ -30,10 +30,3 @@ This is a simple command-line based grocery store management system implemented 
     ```
 
 4. **Follow the On-screen Instructions:** The program will prompt you to log in or create a new account if you're a new user. Then, you can browse available items, select items for purchase, specify quantities, and generate bills.
-
-## Important Note
-
-- Make sure to update the quantities of available items in the code according to your store's stock. The code currently contains placeholders for stock quantities (`MAX_*_QUANTITY` constants). You should adjust these quantities based on the actual stock available in your store.
-
-
-Feel free to contribute to this project by submitting bug reports, feature requests, or pull requests.
