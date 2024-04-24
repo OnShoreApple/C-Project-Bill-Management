@@ -3,11 +3,11 @@
 void displayItems() {
     printf("Grocery Items available:\n");
     printf("Category: Grains\n");
-    printf("1. Rice (5kg)        - Rs. 200    (Quantity: 50)\n");
-    printf("2. Wheat Flour (10kg) - Rs. 300    (Quantity: 30)\n");
+    printf("1. Rice (5kg)          - Rs. 200    (Quantity: 50)\n");
+    printf("2. Wheat Flour (10kg)  - Rs. 300    (Quantity: 30)\n");
     printf("\n");
     printf("Category: Cooking Essentials\n");
-    printf("3. Cooking Oil (1L)   - Rs. 150    (Quantity: 40)\n");
+    printf("3. Cooking Oil (1L)    - Rs. 150    (Quantity: 40)\n");
     printf("4. Salt (1kg)          - Rs. 20     (Quantity: 60)\n");
     printf("5. Sugar (1kg)         - Rs. 40     (Quantity: 45)\n");
     printf("\n");
