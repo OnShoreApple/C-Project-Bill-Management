@@ -1,32 +1,31 @@
 # Grocery Store Management System
 
-This is a simple command-line based grocery store management system implemented in C. It allows users to browse available grocery items, select items for purchase, and generate bills. The system also ensures that the bill does not exceed the available stock in the store and provides discounts for large purchases.
+This is a C-based Grocery Store Management System. The system allows users to log in, create an account, view available grocery items, search for specific items, and generate a bill for purchased items.
 
 ## Features
 
-- Display available grocery items categorized by type.
-- Select items and specify quantities for purchase.
-- Generate bills based on the selected items and quantities.
-- Check available stock for each item and prevent over-purchasing.
+- **User Authentication**: Allows users to log in or create a new account.
+- **Display Items**: Shows a list of available grocery items categorized and aligned properly.
+- **Search Items**: Allows users to search for specific items by name.
+- **Generate Bill**: Calculates the total cost of selected items and applies discounts if applicable.
 
-## How to Use
+## Files in the Project
 
-1. **Clone the Repository:** Clone this repository to your local machine using the following command:
+1. `make.c` - The main file which coordinates the execution of the program.
+2. `login.c` - Handles user login and account creation functionalities.
+3. `items.c` - Manages item display and search functionalities.
+4. `bill.c` - Manages bill generation functionalities.
+5. `users.txt` - Stores user login information (username and password).
 
-    ```
-    git clone https://github.com/OnShoreApple/C-Project-Bill-Management.git
-    ```
+## How to Compile and Run
 
-2. **Compile the Code:** Compile the code using a C compiler. For example, you can use GCC:
+### Prerequisites
 
-    ```
-    gcc MAKE.c -o grocery_store
-    ```
+- GCC compiler
 
-3. **Run the Program:** Run the compiled program:
+### Compilation
 
-    ```
-    ./grocery_store
-    ```
+To compile the project, run the following command in your terminal:
 
-4. **Follow the On-screen Instructions:** The program will prompt you to log in or create a new account if you're a new user. Then, you can browse available items, select items for purchase, specify quantities, and generate bills.
+```sh
+gcc make.c login.c items.c bill.c -o store
