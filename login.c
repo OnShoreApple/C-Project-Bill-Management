@@ -1,42 +1,78 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-#define MAX_LENGTH 50
+#define USER_FILE "users.txt"
 
 typedef struct {
-    char username[MAX_LENGTH];
-    char password[MAX_LENGTH];
+    char* username;
+    char* password;
 } User;
 
-User *loginUser() {
-    char username[MAX_LENGTH];
-    char password[MAX_LENGTH];
-    int i = 0;
+User* loginUser() {
+    char inputUsername[50];
+    char inputPassword[50];
+    FILE *file = fopen(USER_FILE, "r");
+
+    if (file == NULL) {
+        printf("Error opening user file.\n");
+        return NULL;
+    }
 
     printf("Enter username: ");
-    scanf("%49s", username);
+    scanf("%s", inputUsername);
     printf("Enter password: ");
-    scanf("%49s", password);
+    scanf("%s", inputPassword);
 
-    User *user = (User *)malloc(sizeof(User));
+    User* user = malloc(sizeof(User));
     if (user == NULL) {
         printf("Memory allocation failed.\n");
-        exit(1);
+        fclose(file);
+        return NULL;
     }
 
-    for (i = 0; i < MAX_LENGTH && username[i] != '\0'; ++i) {
-        user->username[i] = username[i];
-    }
-    user->username[i] = '\0';
+    user->username = malloc(50 * sizeof(char));
+    user->password = malloc(50 * sizeof(char));
 
-    for (i = 0; i < MAX_LENGTH && password[i] != '\0'; ++i) {
-        user->password[i] = password[i];
+    if (user->username == NULL || user->password == NULL) {
+        printf("Memory allocation failed.\n");
+        free(user);
+        fclose(file);
+        return NULL;
     }
-    user->password[i] = '\0';
 
-    return user;
+    while (fscanf(file, "%s %s", user->username, user->password) != EOF) {
+        if (strcmp(user->username, inputUsername) == 0 && strcmp(user->password, inputPassword) == 0) {
+            printf("Login successful!\n");
+            fclose(file);
+            return user;
+        }
+    }
+
+    printf("Login failed. User does not exist.\n");
+    free(user->username);
+    free(user->password);
+    free(user);
+    fclose(file);
+    return NULL;
 }
 
-void createUser(char *username, char *password) {
+void createUser() {
+    char username[50];
+    char password[50];
+    FILE *file = fopen(USER_FILE, "a");
+
+    if (file == NULL) {
+        printf("Error opening user file.\n");
+        return;
+    }
+
+    printf("Enter new username: ");
+    scanf("%s", username);
+    printf("Enter new password: ");
+    scanf("%s", password);
+
+    fprintf(file, "%s %s\n", username, password);
     printf("User created successfully!\n");
+    fclose(file);
 }
